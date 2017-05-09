@@ -10,10 +10,15 @@ class main(App):
 
 	def generateTerrain(self,sizeW,sizeH):
 		objectList = np.empty((sizeW,sizeH),dtype=object)
+		switch = True
 		for i in range(0,sizeW):
+			switch = not switch
 			for j in range(0,sizeH):
-				objectList[i][j] = blocks.dirt(i,j)
-				#pass
+				switch = not switch
+				if switch:
+					objectList[i][j] = blocks.dirt(i,j)
+				else:
+					objectList[i][j] = blocks.stone(i,j)
 		return objectList
 	def drawTerrain(self,objects):
 		global playerPos
