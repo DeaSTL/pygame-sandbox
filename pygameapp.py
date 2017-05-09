@@ -27,7 +27,9 @@ class App(object):
 		pass
 	def onMousePressed(self,x,y,button):
 		pass
-	def onKeyPressed(self,key):
+	def onKeyDown(self,key):
+		pass
+	def onKeyUp(self,key):
 		pass
 	def start(self):
 		self.onStart()
@@ -39,7 +41,7 @@ class App(object):
 			self.clock.tick(self.frameRate)
 
 			self.pygame.display.update()
-			
+
 			for event in self.pygame.event.get():
 				if event.type == self.pygame.QUIT:
 					sys.exit(0)
@@ -53,8 +55,9 @@ class App(object):
 					print(event.button)
 					self.onMousePressed(event.pos[0],event.pos[1],event.button)
 				if event.type == self.pygame.KEYDOWN:
-					self.onKeyPressed(event.key)
-
+					self.onKeyDown(event.key)
+				if event.type == self.pygame.KEYUP:
+					self.onKeyUp(event.key)
 	def getWindowHeight(self): return self.windowHeight
 	def getWindowWidth(self): return self.windowWidth
 	def getFrameRate(self): return self.frameRate
