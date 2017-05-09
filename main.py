@@ -12,9 +12,9 @@ class main(App):
 		objectList = np.empty((sizeW,sizeH),dtype=object)
 		switch = True
 		for i in range(0,sizeW):
-			switch = not switch
+			
 			for j in range(0,sizeH):
-				switch = not switch
+				
 				if switch:
 					objectList[i][j] = blocks.dirt(i,j)
 				else:
